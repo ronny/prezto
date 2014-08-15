@@ -52,7 +52,7 @@ function prompt_ronny_setup {
   add-zsh-hook precmd prompt_ronny_precmd
 
   # Set editor-info parameters.
-  zstyle ':prezto:module:editor:info:completing' format '%B%F{red}⇢%f%b'
+  zstyle ':prezto:module:editor:info:completing' format '%B%F{red}...%f%b'
   zstyle ':prezto:module:editor:info:keymap:primary' format '%B»%b'
   zstyle ':prezto:module:editor:info:keymap:primary:overwrite' format '%F{red}♺%f '
   zstyle ':prezto:module:editor:info:keymap:alternate' format '%B«%b'
@@ -67,11 +67,11 @@ function prompt_ronny_setup {
   zstyle ':prezto:module:git:info:action' format '%%B%F{yellow}%s%f%%b'
 
   zstyle ':prezto:module:git:info:added' format '%%B%F{magenta}+%f %%b'
-  zstyle ':prezto:module:git:info:ahead' format '%%B%F{yellow}⇢%f %%b'
-  zstyle ':prezto:module:git:info:behind' format '%%B%F{yellow}⇠%f %%b'
+  zstyle ':prezto:module:git:info:ahead' format '%%B%F{yellow}⇡%f %%b'
+  zstyle ':prezto:module:git:info:behind' format '%%B%F{yellow}⇣%f %%b'
   zstyle ':prezto:module:git:info:deleted' format '%%B%F{magenta}☓%f %%b'
   zstyle ':prezto:module:git:info:modified' format '%%B%F{magenta}✳%f %%b'
-  zstyle ':prezto:module:git:info:renamed' format '%%B%F{magenta}→%f %%b'
+  zstyle ':prezto:module:git:info:renamed' format '%%B%F{magenta}⇢%f %%b'
   zstyle ':prezto:module:git:info:stashed' format '%%B%F{cyan}⦿%f %%b'
   zstyle ':prezto:module:git:info:unmerged' format '%%B%F{magenta}U%f %%b'
   zstyle ':prezto:module:git:info:untracked' format '%%B%F{magenta}?%f %%b'
@@ -80,7 +80,7 @@ function prompt_ronny_setup {
     'prompt' ' [$(coalesce "%b" "%c" "%p")]%A%B%S%a%d%m%r%U%u%s'
 
   # %v - ruby version.
-  zstyle ':prezto:module:ruby:info:version' format 'ruby-%v'
+  zstyle ':prezto:module:ruby:info:version' format ' ruby-%v'
 
   # Define prompts.
   PROMPT='%(!.%F{red}.%F{green}%n@%m)%f:%F{blue}${_prompt_ronny_pwd}%f${git_info:+${(e)git_info[prompt]}}%(!.%B%F{red}#%f%b.)${editor_info[keymap]} '
