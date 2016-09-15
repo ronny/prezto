@@ -23,10 +23,6 @@ function prompt_ronny_pwd {
   fi
 }
 
-function prompt_ronny_preexec {
-  node-info
-}
-
 function prompt_ronny_precmd {
   setopt LOCAL_OPTIONS
   unsetopt XTRACE KSH_ARRAYS
@@ -39,8 +35,12 @@ function prompt_ronny_precmd {
     git-info
   fi
 
-  if (( $+functions[ruby-info] )); then
-    ruby-info
+  # if (( $+functions[ruby-info] )); then
+  #   ruby-info
+  # fi
+
+  if (( $+functions[node-info] )); then
+    node-info
   fi
 }
 
