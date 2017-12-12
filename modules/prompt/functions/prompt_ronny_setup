@@ -12,6 +12,8 @@
 # Load dependencies.
 pmodload 'helper'
 
+local node_prompt_part
+
 function prompt_ronny_pwd {
   local pwd="${PWD/#$HOME/~}"
 
@@ -39,8 +41,13 @@ function prompt_ronny_precmd {
   #   ruby-info
   # fi
 
-  if (( $+functions[node-info] )); then
-    node-info
+  if [[ -e .nvmrc || -e .node-version ]]; then
+    if (( $+functions[node-info] )); then
+      node-info
+      node_prompt_part=" node:${node_info[version]#version:} "
+    fi
+  else
+    node_prompt_part=""
   fi
 }
 
@@ -87,8 +94,8 @@ function prompt_ronny_setup {
   #zstyle ':prezto:module:ruby:info:version' format ' ruby-%v'
 
   # Define prompts.
-  PROMPT='%(!.%F{red}.%F{green}%n@%m)%f:%F{blue}${_prompt_ronny_pwd}%f${git_info:+${(e)git_info[prompt]}}%(!.%B%F{red}#%f%b.)${editor_info[keymap]} '
-  RPROMPT='${editor_info[overwrite]}%(?:: %F{red}⏎%f)${VIM:+" %B%F{green}V%f%b"}${node_info[version]}'
+  PROMPT='%(!.%F{red}.%F{green}%n@%m)%f:%F{blue}${_prompt_ronny_pwd}%f${git_info:+${(e)git_info[prompt]}}%(!.%B%F{red}#%f%b.)${node_prompt_part}${editor_info[keymap]} '
+  RPROMPT='${editor_info[overwrite]}%(?:: %F{red}⏎%f)${VIM:+" %B%F{green}V%f%b"}'
   SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
 }
 
