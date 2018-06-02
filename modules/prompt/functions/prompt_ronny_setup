@@ -64,7 +64,7 @@ function prompt_ronny_setup {
 
   # Set editor-info parameters.
   zstyle ':prezto:module:editor:info:completing' format '%B%F{red}...%f%b'
-  zstyle ':prezto:module:editor:info:keymap:primary' format '%B»%b'
+  zstyle ':prezto:module:editor:info:keymap:primary' format '%B%F{yellow}»%f%b'
   zstyle ':prezto:module:editor:info:keymap:primary:overwrite' format '%F{red}♺%f '
   zstyle ':prezto:module:editor:info:keymap:alternate' format '%B«%b'
 
